@@ -13,6 +13,7 @@
 @interface BRScanOptions ()
 
 @property (nonatomic) BOOL dontSaveData;
+@property (nonatomic) BOOL resizeDown;
 
 @end
 
@@ -81,9 +82,7 @@
     
     BRScanOptions *scanOptions = [BRScanOptions new];
     
-    scanOptions.detectDistanceWithEdges = self.edgeDetection;
-    scanOptions.storeUserFrames = self.storeUserFrames;
-    scanOptions.dontSaveData = self.dontSaveData;
+    scanOptions.resizeDown = YES;
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
