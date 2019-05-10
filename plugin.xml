@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+           id="com.os.mobile.blinkreceipt"
+      version="0.0.5">
+    <name>BlinkReceipt Plugin</name>
+    <description>Plugin to scan receipts using BlinkReceipt SDK</description>
+    <license>MIT License</license>
+    <keywords>cordova,blinkreceipt,microblink</keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <js-module src="www/BlinkReceipt.js" name="BlinkReceipt">
+        <clobbers target="cordova.plugins.blinkReceipt" />
+        <clobbers target="plugin.blinkReceipt" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="BlinkReceiptPlugin">
+                <param name="ios-package" value="BlinkReceiptPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/BlinkReceiptPlugin.h" />
+        <source-file src="src/ios/BlinkReceiptPlugin.m" />
+        
+        <!-- MicroBlink frameworks -->
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/BRLiveScanViewController.nib" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/BRStaticScanViewController.nib" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/btnPlus.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/btnPlus@2x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/btnPlus@3x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/btn_cam.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/btn_cam@2x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/btn_cam@3x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/btn_cam_pressed.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/btn_cam_pressed@2x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/btn_cam_pressed@3x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/camera.wav" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/googlevision.der" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/ic_flash_off.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/ic_flash_off@2x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/ic_flash_off@3x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/ic_flash_on.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/ic_flash_on@2x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/ic_flash_on@3x.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/logo-mappings.csv" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/lookup.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/lookup_amatorka.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/lookup_miss_etikate.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/lookup_soft_elegance_1.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/lookup_soft_elegance_2.png" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/merchant-names-au.csv" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/merchant-names.csv" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/movecloser.mp3" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/nn_model_ReceiptClassifier_general_5.1.1.zzip" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/nn_model_ReceiptDetector_general_5.7.0.zzip" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/nn_model_ReceiptOcr_english_5.3.1.zzip" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/nn_model_ReceiptOcr_walmart_scanned_5.1.3.zzip" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/singapore-mall.csv" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/windfall-intermediate.der" />
+
+        <framework src="src/ios/libs/BlinkReceiptStatic.framework" custom="true" embed="true" />
+        
+        
+        <!-- System frameworks -->
+        <framework src="Accelerate.framework" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="CoreMedia.framework" />
+        <framework src="CoreVideo.framework" />
+        <framework src="CoreText.framework" />
+        <framework src="MediaPlayer.framework" />
+        <framework src="MessageUI.framework" />
+        <framework src="MobileCoreServices.framework" />
+        <framework src="OpenGLES.framework" />
+        <framework src="QuartzCore.framework" />
+        <framework src="Security.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="libz.dylib" />
+        <framework src="libiconv.dylib" />
+        <framework src="libc++.dylib" />
+
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>Scan receipts using camera</string>
+        </config-file>
+
+         <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+            <string>Scan receipt images from camera roll</string>
+        </config-file>
+
+        <hook type="before_plugin_install" src="scripts/initIOSFramework.sh"/>
+      
+    </platform>
+    
+    <!-- Android
+    <platform name="android">
+        
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BlinkIdPlugin">
+                <param name="android-package" value="com.os.mobile.blinkid.BlinkIdPlugin"/>
+            </feature>
+        </config-file>
+        
+        <source-file src="src/android/BlinkIdPlugin.java" target-dir="src/com/os/mobile/blinkid" />
+		<framework src="src/android/microblink.gradle" custom="true" type="gradleReference" />        
+    </platform>
+    -->
+</plugin>
