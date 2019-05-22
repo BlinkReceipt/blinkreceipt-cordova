@@ -24,7 +24,7 @@ Property | Required | Description
 licenseKey | Yes | This is the iOS license key that you must generate at the [Microblink Dashboard](https://microblink.com/signup)
 staticScan | No | By default the scanning session will use the live camera, but you can pass `true` for this parameter to instead scan from the camera roll. When running on the iOS simulator you will always scan from camera roll.
 edgeDetection | No | Pass `true` in order to turn on edge detection which prompts the user with tips for adjusting their distance from the receipt
-storeUserFrames | No | Pass `true` in order to return filepaths for frames the user snapped during the scan session
+storeUserFrames | No | Pass `true` in order to store the frames the user snapped during the scan session. The file paths for these frames will be found in the `userFramesFilepaths` key of the scan results
 dontSaveData | No | Pass `true` to prevent the SDK from saving any receipt data or images remotely
 
 - The `successCallback` is a function as follows:
