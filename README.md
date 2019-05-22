@@ -35,9 +35,9 @@ function successCallback(scanResults) {
 }
 ```
 
--`scanResults` is an object containing all the data from the scan session with property names matching those of the iOS results objects such as `BRScanResults`, `BRProduct` etc which are all documented at https://blinkreceipt.github.io/blinkreceipt-ios
+- `scanResults` is an object containing all the data from the scan session with property names matching those of the iOS results objects such as `BRScanResults`, `BRProduct` etc which are all documented at https://blinkreceipt.github.io/blinkreceipt-ios
 
--The `errorCallback` is a function as follows:
+- The `errorCallback` is a function as follows:
 
 ```javascript
 function errorCallback(errorObject) {
