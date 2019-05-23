@@ -3,7 +3,7 @@
 HERE="$(dirname "$(test -L "$0" && readlink "$0" || echo "$0")")"
 pushd "${HERE}/../src/ios/" > /dev/null
 
-VERSION=1.7.2
+VERSION=1.7.3
 LINK="https://github.com/BlinkReceipt/blinkreceipt-ios/releases/download/${VERSION}/BlinkReceiptStatic.framework-${VERSION}.zip"
 
 FILENAME='blinkreceipt-ios.zip'

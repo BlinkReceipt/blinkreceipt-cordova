@@ -14,12 +14,13 @@
 
 @property (nonatomic) BOOL dontSaveData;
 @property (nonatomic) BOOL resizeDown;
+@property (nonatomic) NSInteger invoiceMode;
 
 @end
 
 @interface BlinkReceiptPlugin () <BRScanResultsDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic) BOOL edgeDetection, storeUserFrames, dontSaveData;
+@property (nonatomic) BOOL edgeDetection, storeUserFrames, dontSaveData, invoiceMode;
 @property (strong, nonatomic) CDVInvokedUrlCommand* commandHelper;
 
 @end
@@ -36,6 +37,7 @@
     self.storeUserFrames = [[command argumentAtIndex:3 withDefault:@(NO) andClass:[NSNumber class]] boolValue];
     self.dontSaveData = [[command argumentAtIndex:4 withDefault:@(NO) andClass:[NSNumber class]] boolValue];
     BOOL scanStaticImage = [[command argumentAtIndex:5 withDefault:@(NO) andClass:[NSNumber class]] boolValue];
+    self.invoiceMode = [[command argumentAtIndex:6 withDefault:@(NO) andClass:[NSNumber class]] boolValue];
     
     if (!licenseKey) {
         NSDictionary *errorDict = @{@"error": @"No license key"};
@@ -70,6 +72,7 @@
         }
         scanOptions.storeUserFrames = self.storeUserFrames;
         scanOptions.dontSaveData = self.dontSaveData;
+        scanOptions.invoiceMode = self.invoiceMode ? 2 : 0;
         
         [[BRScanManager sharedManager] startStaticCameraFromController:[self currentApplicationViewController]
                                                            scanOptions:scanOptions
@@ -83,6 +86,8 @@
     BRScanOptions *scanOptions = [BRScanOptions new];
     
     scanOptions.resizeDown = YES;
+    scanOptions.invoiceMode = self.invoiceMode ? 2 : 0;
+    scanOptions.dontSaveData = self.dontSaveData;
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     

@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
            id="com.os.mobile.blinkreceipt"
-      version="0.0.5">
+      version="0.0.6">
     <name>BlinkReceipt Plugin</name>
     <description>Plugin to scan receipts using BlinkReceipt SDK</description>
     <license>MIT License</license>
@@ -54,6 +54,7 @@
         <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/lookup_soft_elegance_2.png" />
         <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/merchant-names-au.csv" />
         <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/merchant-names.csv" />
+        <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/merchant-names-invoices.csv" />
         <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/movecloser.mp3" />
         <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/nn_model_ReceiptClassifier_general_5.1.1.zzip" />
         <resource-file src="src/ios/libs/BlinkReceiptStatic.framework/nn_model_ReceiptDetector_general_5.7.0.zzip" />

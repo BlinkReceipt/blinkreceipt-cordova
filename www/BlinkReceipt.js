@@ -5,7 +5,7 @@ exports.scanReceipt = function (successCallback, errorCallback, options) {
 
 	var argsToPass = [];
 
-	var allArgs = ['licenseKey','licensee','edgeDetection','storeUserFrames','dontSaveData','scanStatic'];
+	var allArgs = ['licenseKey','licensee','edgeDetection','storeUserFrames','dontSaveData','scanStatic','invoiceMode'];
 
 	allArgs.forEach(function(curArg) {
 		if (curArg in options) {

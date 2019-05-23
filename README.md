@@ -26,6 +26,7 @@ staticScan | No | By default the scanning session will use the live camera, but 
 edgeDetection | No | Pass `true` in order to turn on edge detection which prompts the user with tips for adjusting their distance from the receipt
 storeUserFrames | No | Pass `true` in order to store the frames the user snapped during the scan session. The file paths for these frames will be found in the `userFramesFilepaths` key of the scan results
 dontSaveData | No | Pass `true` to prevent the SDK from saving any receipt data or images remotely
+invoiceMode | No | Pass `true` to indicate that the document type for this scan session is a full size paper invoice (rather than a receipt)
 
 - The `successCallback` is a function as follows:
 

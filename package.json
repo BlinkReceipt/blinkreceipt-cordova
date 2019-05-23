@@ -1,6 +1,6 @@
 {
   "name": "com.os.mobile.blinkreceipt",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Plugin to scan receipts using BlinkReceipt SDK",
   "cordova": {
     "id": "com.os.mobile.blinkreceipt",
